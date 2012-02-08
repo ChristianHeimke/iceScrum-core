@@ -83,23 +83,24 @@ class StoryService {
 
             int i;
             // add PO
-            if((grailsApplication.config.icescrum.auto_follow_productowner) && (p.getProductOwners() != null)){
-                for(i=0; i < p.getProductOwners().size(); i++){
-                    story.addFollower(p.getProductOwners().get(i))
+            if(grailsApplication.config.icescrum.auto_follow_productowner){
+                p.getProductOwners().each {
+                    story.addFollower(it)
                 }
+
             }
 
             // add SM
-            if((grailsApplication.config.icescrum.auto_follow_scrummaster) && (p.getScrumMasters() != null)){
-                for(i=0; i < p.getScrumMasters().size(); i++){
-                    story.addFollower(p.getScrumMasters().get(i))
-                }
+            if(grailsApplication.config.icescrum.auto_follow_scrummaster){
+                p.getScrumMasters().each {
+                    story.addFollower(it)
+                }                        
             }
 
             // add ST
-            if((grailsApplication.config.icescrum.auto_follow_stakeholder) && (p.getStakeHolders() != null)){
-                for(i=0; i < p.getStakeHolders().size(); i++){
-                    story.addFollower(p.getStakeHolders().get(i))
+            if(grailsApplication.config.icescrum.auto_follow_stakeholder){
+                p.getStakeHolders().each {
+                    story.addFollower(it)
                 }
             }
             story.addActivity(u, Activity.CODE_SAVE, story.name)

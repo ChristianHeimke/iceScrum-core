@@ -22,5 +22,5 @@
 <g:message
         locale="${locale}"
         code='is.template.email.story.acceptedAs.text'
-        args="[elementName,acceptedAs]"/>
+        args="[elementName,acceptedAs,storyBody]"/>
 <g:message locale="${locale}" code='is.template.email.footer' args="[link,linkName]"/>

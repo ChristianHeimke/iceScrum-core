@@ -93,11 +93,16 @@ class NotificationEmailService implements ApplicationListener<IceScrumStoryEvent
                 log.debug "Send email, event:${type} to : ${group*.email.toArray()} with locale : ${locale}"
             }
 
+            String storyBody = "-";
+            
+            if(story.backlog.description != null)
+                storyBody = story.backlog.description
+
             send([
                     bcc: group*.email.toArray(),
                     subject: getMessage('is.template.email.story.' + event.toLowerCase() + '.subject', (Locale) locale, subjectArgs),
                     view: '/emails-templates/story' + event,
-                    model: [locale: locale, storyName: story.name, permalink: permalink, linkName: story.backlog.name, link: projectLink]
+                    model: [locale: locale, storyName: story.name, permalink: permalink, linkName: story.backlog.name, storyBody: storyBody, link: projectLink]
             ])
         }
     }
@@ -122,7 +127,7 @@ class NotificationEmailService implements ApplicationListener<IceScrumStoryEvent
                     bcc: group*.email.toArray(),
                     subject: getMessage('is.template.email.story.changedState.subject', (Locale) locale, subjectArgs),
                     view: '/emails-templates/storyChangedState',
-                    model: [state: getMessage('is.template.email.story.changedState.' + type.toLowerCase(), (Locale) locale), locale: locale, storyName: story.name, permalink: permalink, linkName: story.backlog.name, link: projectLink]
+                    model: [state: getMessage('is.template.email.story.changedState.' + type.toLowerCase(), (Locale) locale), locale: locale, storyName: story.name, storyBody: story.backlog.description, permalink: permalink, linkName: story.backlog.name, link: projectLink]
             ])
         }
 
@@ -162,7 +167,7 @@ class NotificationEmailService implements ApplicationListener<IceScrumStoryEvent
                         bcc: group*.email.toArray(),
                         subject: getMessage('is.template.email.story.commentEdited.subject', (Locale) locale, subjectArgs),
                         view: '/emails-templates/storyCommentEdited',
-                        model: [by: user.firstName + " " + user.lastName, locale: locale, storyName: story.name, permalink: permalink, linkName: story.backlog.name, link: projectLink, comment: comment.body]
+                        model: [by: user.firstName + " " + user.lastName, locale: locale, storyName: story.name, storyBody: story.backlog.description, permalink: permalink, linkName: story.backlog.name, link: projectLink, comment: comment.body]
                 ])
             }
         }
