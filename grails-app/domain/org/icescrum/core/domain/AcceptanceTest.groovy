@@ -24,6 +24,7 @@ package org.icescrum.core.domain
 
 import org.icescrum.core.event.IceScrumAcceptanceTestEvent
 import org.springframework.security.core.context.SecurityContextHolder as SCH
+import org.apache.tools.ant.types.resources.selectors.Date
 
 class AcceptanceTest implements Serializable {
 
@@ -31,8 +32,9 @@ class AcceptanceTest implements Serializable {
     String description
     int uid
 
-    Date dateCreated
-    Date lastUpdated
+
+    java.util.Date  dateCreated
+    java.util.Date  lastUpdated
 
     static belongsTo = [
         creator: User,

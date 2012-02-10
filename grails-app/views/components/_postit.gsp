@@ -16,68 +16,27 @@
   - along with iceScrum.  If not, see <http://www.gnu.org/licenses/>.
   --}%
 
-<div class="${className} ${styleClass} postit-${type}" id="postit-${type}-${id}" elemId="${id}">
 
-    <div class="postit-layout postit-${color}">
-
-        <g:if test="${miniId}">
-            <g:if test="${type == 'story'}">
-                <p class="postit-id"><is:scrumLink controller="backlogElement" id="${id}">${miniId}</is:scrumLink></p>
-            </g:if>
-            <g:else>
-                <p class="postit-id">${miniId}</p>
-            </g:else>
-        </g:if>
-
-        <g:if test="${attachment}">
-            <span class="postit-attachment"
-                  title="${message(code: 'is.postit.attachment', args: [attachment, (attachment instanceof Integer && attachment > 1) ? 's' : ''])}"></span>
-        </g:if>
-
-        <g:if test="${comment}">
-            <span class="postit-comment"
-                  title="${message(code: 'is.postit.comment.count', args: [comment, (comment instanceof Integer && comment > 1) ? 's' : ''])}"></span>
-        </g:if>
-
-    %{-- Title --}%
-        <g:if test="${sortable}">
-            <p class="postit-label postit-sortable break-word">${title.encodeAsHTML()}</p>
-        </g:if>
-        <g:else>
-            <p class="postit-label break-word">${title.encodeAsHTML()}</p>
-        </g:else>
-
-        <g:if test="${className != 'postit-rect'}">
-            <p class="postit-excerpt">${content.replace('<br>', '')}</p>
-        </g:if>
-
-        <g:if test="${typeNumber}">
-            <span class="postit-ico ico-${type}-${typeNumber}" title="${typeTitle ?: ''}"></span>
-        </g:if>
-        <g:else>
-            <span class="postit-ico"></span>
-        </g:else>
-
-    %{--Status bar of the post-it note--}%
-        <div class="state task-state">
-
-        %{--Estimation--}%
-            <g:if test="${miniValue != null}">
-                <span class=" opacity-70 mini-value ${editableEstimation ? 'editable' : ''}">${miniValue}</span>
-            </g:if>
-        %{--State label--}%
-            <span class="text-state"><is:truncated encodedHTML="true" size="16">${stateText}</is:truncated></span>
-
-        %{--Embedded menu--}%
-            <g:if test="${embeddedMenu}">
-                <div class="dropmenu-action">${embeddedMenu}</div>
-            </g:if>
-
-            <g:if test="${tooltip}">
-                ${tooltip}
-            </g:if>
-
+<div class="story-container">
+    <div class="story blue">
+        <div class="story-number-container button key">
+            <!-- die Klasse "button" gibt an das ein Icon oben rechts angezeigt wird -->
+            <!-- die Klasse "key" gibt an welches Icon doirt dargestellt werden soll -->
+            <h5>91</h5>
+            <p class="all-time">1269.00 h</p>
+            <!-- Hier wird zwischen den Klassen "all-time" und "my-time" unterschieden -->
+            <div></div>
         </div>
-
+        <dl>
+            <dt>Server Einrichtung & Konfiguration</dt>
+            <dd>Installation und eine Einrichtung des neuen Servers. Dazu …</dd>
+            <dd>1 in progress</dd>
+        </dl>
+        <div class="story-footer without-paper-clip">
+            <!-- Klasse "without-paper-clip" entfernt die Büroklammer -->
+            <div class="speech-bubble"></div>
+            <div class="paper-clip"></div>
+            <div class="button-make"></div>
+        </div>
     </div>
 </div>

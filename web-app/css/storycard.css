@@ -1,0 +1,507 @@
+/*
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+    FIRMA       :   bloopark Ltd. & Co KG
+    CLIENT      :   glossybox
+    DATE        :   03/02/2012
+    AUTHOR      :   mladengast
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+*/
+/* 1. RESETS ------------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* 2. TYPOGRAPHY --------------------------------------------------------------- */
+/* 2.1 FONTS ------------------------------------------------------------------- */
+@font-face {
+  font-family: "UnitSlabOTRegular";
+  src: url('/icescrum/stylesheets/fonts/unitslabot/regular/unitslabot-webfont.eot');
+  src: url('/icescrum/stylesheets/fonts/unitslabot/regular/unitslabot-webfont.eot?iefix') format('eot'), url('/icescrum/stylesheets/fonts/unitslabot/regular/unitslabot-webfont.svg#UnitSlabOTRegular') format('svg'), url('/icescrum/stylesheets/fonts/unitslabot/regular/unitslabot-webfont.eot?#iefix') format('embedded-opentype'), url('/icescrum/stylesheets/fonts/unitslabot/regular/unitslabot-webfont.woff') format('woff'), url('/icescrum/stylesheets/fonts/unitslabot/regular/unitslabot-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "UnitSlabOTBold";
+  src: url('/icescrum/stylesheets/fonts/unitslabot/bold/unitslabot-bold-webfont.eot');
+  src: url('/icescrum/stylesheets/fonts/unitslabot/bold/unitslabot-bold-webfont.eot?iefix') format('eot'), url('/icescrum/stylesheets/fonts/unitslabot/bold/unitslabot-bold-webfont.svg#UnitSlabOTRegular') format('svg'), url('/icescrum/stylesheets/fonts/unitslabot/bold/unitslabot-bold-webfont.eot?#iefix') format('embedded-opentype'), url('/icescrum/stylesheets/fonts/unitslabot/bold/unitslabot-bold-webfont.woff') format('woff'), url('/icescrum/stylesheets/fonts/unitslabot/bold/unitslabot-bold-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "UnitSlabOTMedium";
+  src: url('/icescrum/stylesheets/fonts/unitslabot/medium/unitslabot-medi-webfont.eot');
+  src: url('/icescrum/stylesheets/fonts/unitslabot/medium/unitslabot-medi-webfont.eot?iefix') format('eot'), url('/icescrum/stylesheets/fonts/unitslabot/medium/unitslabot-medi-webfont.svg#UnitSlabOTRegular') format('svg'), url('/icescrum/stylesheets/fonts/unitslabot/medium/unitslabot-medi-webfont.eot?#iefix') format('embedded-opentype'), url('/icescrum/stylesheets/fonts/unitslabot/medium/unitslabot-medi-webfont.woff') format('woff'), url('/icescrum/stylesheets/fonts/unitslabot/medium/unitslabot-medi-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "UnitSlabOTMediumItalic";
+  src: url('/icescrum/stylesheets/fonts/unitslabot/medium_italic/unitslabot-mediita-webfont.eot');
+  src: url('/icescrum/stylesheets/fonts/unitslabot/medium_italic/unitslabot-mediita-webfont.eot?iefix') format('eot'), url('/icescrum/stylesheets/fonts/unitslabot/medium_italic/unitslabot-mediita-webfont.svg#UnitSlabOTRegular') format('svg'), url('/icescrum/stylesheets/fonts/unitslabot/medium_italic/unitslabot-mediita-webfont.eot?#iefix') format('embedded-opentype'), url('/icescrum/stylesheets/fonts/unitslabot/medium_italic/unitslabot-mediita-webfont.woff') format('woff'), url('/icescrum/stylesheets/fonts/unitslabot/medium_italic/unitslabot-mediita-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "UnitSlabOTLight";
+  src: url('/icescrum/stylesheets/fonts/unitslabot/light/unitslabot-light-webfont.eot');
+  src: url('/icescrum/stylesheets/fonts/unitslabot/light/unitslabot-light-webfont.eot?iefix') format('eot'), url('/icescrum/stylesheets/fonts/unitslabot/light/unitslabot-light-webfont.svg#UnitSlabOTRegular') format('svg'), url('/icescrum/stylesheets/fonts/unitslabot/light/unitslabot-light-webfont.eot?#iefix') format('embedded-opentype'), url('/icescrum/stylesheets/fonts/unitslabot/light/unitslabot-light-webfont.woff') format('woff'), url('/icescrum/stylesheets/fonts/unitslabot/light/unitslabot-light-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "UnitSlabOTLightItalic";
+  src: url('/icescrum/stylesheets/fonts/unitslabot/light_italic/unitslabot-lightita-webfont.eot');
+  src: url('/icescrum/stylesheets/fonts/unitslabot/light_italic/unitslabot-lightita-webfont.eot?iefix') format('eot'), url('/icescrum/stylesheets/fonts/unitslabot/light_italic/unitslabot-lightita-webfont.svg#UnitSlabOTRegular') format('svg'), url('/icescrum/stylesheets/fonts/unitslabot/light_italic/unitslabot-lightita-webfont.eot?#iefix') format('embedded-opentype'), url('/icescrum/stylesheets/fonts/unitslabot/light_italic/unitslabot-lightita-webfont.woff') format('woff'), url('/icescrum/stylesheets/fonts/unitslabot/light_italic/unitslabot-lightita-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "UnitSlabOTThin";
+  src: url('/icescrum/stylesheets/fonts/unitslabot/thin/unitslabot-thin-webfont.eot');
+  src: url('/icescrum/stylesheets/fonts/unitslabot/thin/unitslabot-thin-webfont.eot?iefix') format('eot'), url('/icescrum/stylesheets/fonts/unitslabot/thin/unitslabot-thin-webfont.svg#UnitSlabOTRegular') format('svg'), url('/icescrum/stylesheets/fonts/unitslabot/thin/unitslabot-thin-webfont.eot?#iefix') format('embedded-opentype'), url('/icescrum/stylesheets/fonts/unitslabot/thin/unitslabot-thin-webfont.woff') format('woff'), url('/icescrum/stylesheets/fonts/unitslabot/thin/unitslabot-thin-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "AsapRegular";
+  src: url('/icescrum/stylesheets/fonts/asap/regular/asap-regular-webfont.eot');
+  src: url('/icescrum/stylesheets/fonts/asap/regular/asap-regular-webfont.eot?iefix') format('eot'), url('/icescrum/stylesheets/fonts/asap/regular/asap-regular-webfont.svg#AsapRegular') format('svg'), url('/icescrum/stylesheets/fonts/asap/regular/asap-regular-webfont.eot?#iefix') format('embedded-opentype'), url('/icescrum/stylesheets/fonts/asap/regular/asap-regular-webfont.woff') format('woff'), url('/icescrum/stylesheets/fonts/asap/regular/asap-regular-webfont.ttf') format('truetype');
+}
+
+/* 2.2 STORY-HEADER ------------------------------------------------------------ */
+.story-container {
+  text-shadow: rgba(255, 255, 255, 0.4) 0 1px 0;
+  color: black;
+}
+
+.story-container .story-number-container h5 {
+  font-family: "UnitSlabOTMediumItalic";
+  font-size: 12px;
+  padding: 2px 0 6px 5px;
+}
+
+.story-container .story dl dt {
+  font-family: "UnitSlabOTMediumItalic";
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.story-container .story dl dd {
+  font-family: "AsapRegular";
+  font-size: 13px;
+  line-height: 14px;
+  text-align: center;
+}
+
+.story-container .story dl dd:last-child {
+  font-family: "UnitSlabOTBold";
+  font-size: 16px;
+  text-align: center;
+}
+
+.story-container .timer.zero .display-time {
+  color: #989da0;
+  font-family: "UnitSlabOTBold";
+  font-size: 24px;
+  padding: 10px 0;
+  text-align: right;
+}
+
+.story-container .timer.pause .display-time {
+  color: #bd3100;
+  font-family: "UnitSlabOTBold";
+  font-size: 24px;
+  padding: 10px 0;
+  text-align: right;
+}
+
+.story-container .timer.play .display-time {
+  color: #606c72;
+  font-family: "UnitSlabOTBold";
+  font-size: 24px;
+  padding: 10px 0;
+  text-align: right;
+}
+
+.story-container .story-number-container .all-time {
+  color: black;
+  font-family: "UnitSlabOTBold";
+  font-size: 12px;
+  padding: 2px 0 6px 5px;
+  text-align: right;
+}
+
+.story-container .story-number-container .my-time {
+  color: black;
+  font-family: "UnitSlabOTBold";
+  font-size: 12px;
+  padding: 2px 0 6px 5px;
+  text-align: right;
+}
+
+/* 3. LAYOUT ------------------------------------------------------------------- */
+/* 3.1 STORIES ----------------------------------------------------------------- */
+.story-container {
+  float: left;
+  height: 260px;
+  width: 165px;
+}
+
+.story-container .story {
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -o-border-bottom-left-radius: 5px;
+  -ms-border-bottom-left-radius: 5px;
+  -khtml-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -o-border-bottom-right-radius: 5px;
+  -ms-border-bottom-right-radius: 5px;
+  -khtml-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 175px;
+  margin: 5px auto 0 auto;
+  width: 152px;
+}
+
+.story-container .story-number-container {
+  height: 20px;
+  position: relative;
+}
+
+.story-container .story-number-container.button h5 {
+  background: url("../images/stories/header_line.png") repeat-x bottom left;
+  left: 0;
+  position: absolute;
+  width: 120px;
+}
+
+.story-container .story-number-container.button div {
+  display: block;
+}
+
+.story-container .story-number-container div {
+  display: none;
+}
+
+.story-container .story-number-container h5 {
+  background: url("../images/stories/header_line.png") repeat-x bottom left;
+  left: 0;
+  position: absolute;
+  width: 146px;
+}
+
+.story-container .story-number-container.button .all-time {
+  background: url("../images/stories/icon_all_time.png") no-repeat center left;
+  height: 10px;
+  right: 30px;
+  padding-left: 15px;
+  position: absolute;
+  width: auto;
+}
+
+.story-container .story-number-container.button .my-time {
+  background: url("../images/stories/icon_my_time.png") no-repeat center left;
+  height: 10px;
+  right: 30px;
+  padding-left: 15px;
+  position: absolute;
+  width: auto;
+}
+
+.story-container .story-number-container .all-time {
+  background: url("../images/stories/icon_all_time.png") no-repeat center left;
+  height: 10px;
+  right: 5px;
+  padding-left: 15px;
+  position: absolute;
+  width: auto;
+}
+
+.story-container .story-number-container .my-time {
+  background: url("../images/stories/icon_my_time.png") no-repeat center left;
+  height: 10px;
+  right: 5px;
+  padding-left: 15px;
+  position: absolute;
+  width: auto;
+}
+
+.story-container .story .key div {
+  background: url("../images/stories/key.png") no-repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffdf9f), color-stop(2%, #fbc000), color-stop(100%, #ff6d00));
+  background: url("../images/stories/key.png") no-repeat center center, -webkit-linear-gradient(#ffdf9f, #fbc000 2%, #ff6d00);
+  background: url("../images/stories/key.png") no-repeat center center, -moz-linear-gradient(#ffdf9f, #fbc000 2%, #ff6d00);
+  background: url("../images/stories/key.png") no-repeat center center, -o-linear-gradient(#ffdf9f, #fbc000 2%, #ff6d00);
+  background: url("../images/stories/key.png") no-repeat center center, -ms-linear-gradient(#ffdf9f, #fbc000 2%, #ff6d00);
+  background: url("../images/stories/key.png") no-repeat center center, linear-gradient(#ffdf9f, #fbc000 2%, #ff6d00);
+  border: 1px solid #d07021;
+  height: 18px;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  width: 24px;
+}
+
+.story-container .story .bug div {
+  background: url("../images/stories/bug.png") no-repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7c7c7c), color-stop(2%, #4d4d4d), color-stop(100%, black));
+  background: url("../images/stories/bug.png") no-repeat center center, -webkit-linear-gradient(#7c7c7c, #4d4d4d 2%, black);
+  background: url("../images/stories/bug.png") no-repeat center center, -moz-linear-gradient(#7c7c7c, #4d4d4d 2%, black);
+  background: url("../images/stories/bug.png") no-repeat center center, -o-linear-gradient(#7c7c7c, #4d4d4d 2%, black);
+  background: url("../images/stories/bug.png") no-repeat center center, -ms-linear-gradient(#7c7c7c, #4d4d4d 2%, black);
+  background: url("../images/stories/bug.png") no-repeat center center, linear-gradient(#7c7c7c, #4d4d4d 2%, #000000);
+  border: 1px solid black;
+  height: 18px;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  width: 24px;
+}
+
+.story-container .story dl dt {
+  margin-top: 10px;
+}
+
+.story-container .story dl dd {
+  margin-top: 8px;
+}
+
+.story-container .timer {
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -o-border-top-left-radius: 5px;
+  -ms-border-top-left-radius: 5px;
+  -khtml-border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -o-border-top-right-radius: 5px;
+  -ms-border-top-right-radius: 5px;
+  -khtml-border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+  background: url("../images/stories/pattern.png") repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, white), color-stop(1%, #ececec), color-stop(2%, #d8d8d8), color-stop(100%, #cdcdcd));
+  background: url("../images/stories/pattern.png") repeat center center, -webkit-linear-gradient(white, #ececec 1%, #d8d8d8 2%, #cdcdcd);
+  background: url("../images/stories/pattern.png") repeat center center, -moz-linear-gradient(white, #ececec 1%, #d8d8d8 2%, #cdcdcd);
+  background: url("../images/stories/pattern.png") repeat center center, -o-linear-gradient(white, #ececec 1%, #d8d8d8 2%, #cdcdcd);
+  background: url("../images/stories/pattern.png") repeat center center, -ms-linear-gradient(white, #ececec 1%, #d8d8d8 2%, #cdcdcd);
+  background: url("../images/stories/pattern.png") repeat center center, linear-gradient(#ffffff, #ececec 1%, #d8d8d8 2%, #cdcdcd);
+  border: 1px solid #b4b4b4;
+  border-top: 0;
+  height: 45px;
+  margin: auto;
+  position: relative;
+  width: 152px;
+}
+
+.story-footer {
+  position: relative;
+  margin: 13px 10px 5px 10px;
+}
+
+.story-footer .speech-bubble {
+  background: url("../images/stories/speech_bubble.png") no-repeat center center;
+  cursor: pointer;
+  height: 12px;
+  left: 0;
+  position: absolute;
+  width: 15px;
+}
+
+.story-footer .paper-clip {
+  background: url("../images/stories/paper_clip.png") no-repeat center center;
+  cursor: pointer;
+  height: 14px;
+  left: 20px;
+  position: absolute;
+  width: 10px;
+}
+
+.story-footer.without-paper-clip .paper-clip {
+  display: none;
+}
+
+.story-footer.without-speech-bubble .speech-bubble {
+  display: none;
+}
+
+.story-footer.without-speech-bubble .paper-clip {
+  left: 0px;
+}
+
+.story-footer .button-make {
+  background: url("../images/stories/button_make.png") no-repeat center center;
+  cursor: pointer;
+  height: 17px;
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 17px;
+}
+
+.story-container .timer.pause .button-play-pause {
+  background: url("../images/stories/button_pause.png") no-repeat center center;
+  cursor: pointer;
+  height: 35px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 35px;
+}
+
+.story-container .timer.play .button-play-pause,
+.story-container .timer.zero .button-play-pause {
+  background: url("../images/stories/button_play.png") no-repeat center center;
+  cursor: pointer;
+  height: 35px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 35px;
+}
+
+.story-container .timer .display-time {
+  position: absolute;
+  right: 10px;
+}
+
+.story.blue {
+  background: url("../images/stories/blue_pattern.png") repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #abe1fa), color-stop(1%, #6bc6f1), color-stop(100%, #3aa3d4));
+  background: url("../images/stories/blue_pattern.png") repeat center center, -webkit-linear-gradient(#abe1fa, #6bc6f1 1%, #3aa3d4);
+  background: url("../images/stories/blue_pattern.png") repeat center center, -moz-linear-gradient(#abe1fa, #6bc6f1 1%, #3aa3d4);
+  background: url("../images/stories/blue_pattern.png") repeat center center, -o-linear-gradient(#abe1fa, #6bc6f1 1%, #3aa3d4);
+  background: url("../images/stories/blue_pattern.png") repeat center center, -ms-linear-gradient(#abe1fa, #6bc6f1 1%, #3aa3d4);
+  background: url("../images/stories/blue_pattern.png") repeat center center, linear-gradient(#abe1fa, #6bc6f1 1%, #3aa3d4);
+  border: 1px solid #257ca4;
+}
+
+.story.grey {
+  background: url("../images/stories/grey_pattern.png") repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f0f0f0), color-stop(1%, #d7d7d7), color-stop(100%, #b8b8b8));
+  background: url("../images/stories/grey_pattern.png") repeat center center, -webkit-linear-gradient(#f0f0f0, #d7d7d7 1%, #b8b8b8);
+  background: url("../images/stories/grey_pattern.png") repeat center center, -moz-linear-gradient(#f0f0f0, #d7d7d7 1%, #b8b8b8);
+  background: url("../images/stories/grey_pattern.png") repeat center center, -o-linear-gradient(#f0f0f0, #d7d7d7 1%, #b8b8b8);
+  background: url("../images/stories/grey_pattern.png") repeat center center, -ms-linear-gradient(#f0f0f0, #d7d7d7 1%, #b8b8b8);
+  background: url("../images/stories/grey_pattern.png") repeat center center, linear-gradient(#f0f0f0, #d7d7d7 1%, #b8b8b8);
+  border: 1px solid #848484;
+}
+
+.story.red {
+  background: url("../images/stories/red_pattern.png") repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffd6d6), color-stop(1%, #ffabab), color-stop(100%, #f18383));
+  background: url("../images/stories/red_pattern.png") repeat center center, -webkit-linear-gradient(#ffd6d6, #ffabab 1%, #f18383);
+  background: url("../images/stories/red_pattern.png") repeat center center, -moz-linear-gradient(#ffd6d6, #ffabab 1%, #f18383);
+  background: url("../images/stories/red_pattern.png") repeat center center, -o-linear-gradient(#ffd6d6, #ffabab 1%, #f18383);
+  background: url("../images/stories/red_pattern.png") repeat center center, -ms-linear-gradient(#ffd6d6, #ffabab 1%, #f18383);
+  background: url("../images/stories/red_pattern.png") repeat center center, linear-gradient(#ffd6d6, #ffabab 1%, #f18383);
+  border: 1px solid #b85f5f;
+}
+
+.story.lemon {
+  background: url("../images/stories/lemon_pattern.png") repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fff9d4), color-stop(1%, #ffec6f), color-stop(100%, #f5d816));
+  background: url("../images/stories/lemon_pattern.png") repeat center center, -webkit-linear-gradient(#fff9d4, #ffec6f 1%, #f5d816);
+  background: url("../images/stories/lemon_pattern.png") repeat center center, -moz-linear-gradient(#fff9d4, #ffec6f 1%, #f5d816);
+  background: url("../images/stories/lemon_pattern.png") repeat center center, -o-linear-gradient(#fff9d4, #ffec6f 1%, #f5d816);
+  background: url("../images/stories/lemon_pattern.png") repeat center center, -ms-linear-gradient(#fff9d4, #ffec6f 1%, #f5d816);
+  background: url("../images/stories/lemon_pattern.png") repeat center center, linear-gradient(#fff9d4, #ffec6f 1%, #f5d816);
+  border: 1px solid #9f8f0e;
+}
+
+.story.yellow {
+  background: url("../images/stories/yellow_pattern.png") repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffebc8), color-stop(1%, #fbd169), color-stop(100%, #f4af1a));
+  background: url("../images/stories/yellow_pattern.png") repeat center center, -webkit-linear-gradient(#ffebc8, #fbd169 1%, #f4af1a);
+  background: url("../images/stories/yellow_pattern.png") repeat center center, -moz-linear-gradient(#ffebc8, #fbd169 1%, #f4af1a);
+  background: url("../images/stories/yellow_pattern.png") repeat center center, -o-linear-gradient(#ffebc8, #fbd169 1%, #f4af1a);
+  background: url("../images/stories/yellow_pattern.png") repeat center center, -ms-linear-gradient(#ffebc8, #fbd169 1%, #f4af1a);
+  background: url("../images/stories/yellow_pattern.png") repeat center center, linear-gradient(#ffebc8, #fbd169 1%, #f4af1a);
+  border: 1px solid #a47510;
+}
+
+.story.sky {
+  background: url("../images/stories/sky_pattern.png") repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3f6ff), color-stop(1%, #b8e9ff), color-stop(100%, #8aceed));
+  background: url("../images/stories/sky_pattern.png") repeat center center, -webkit-linear-gradient(#e3f6ff, #b8e9ff 1%, #8aceed);
+  background: url("../images/stories/sky_pattern.png") repeat center center, -moz-linear-gradient(#e3f6ff, #b8e9ff 1%, #8aceed);
+  background: url("../images/stories/sky_pattern.png") repeat center center, -o-linear-gradient(#e3f6ff, #b8e9ff 1%, #8aceed);
+  background: url("../images/stories/sky_pattern.png") repeat center center, -ms-linear-gradient(#e3f6ff, #b8e9ff 1%, #8aceed);
+  background: url("../images/stories/sky_pattern.png") repeat center center, linear-gradient(#e3f6ff, #b8e9ff 1%, #8aceed);
+  border: 1px solid #6b9eb5;
+}
+
+.story.green {
+  background: url("../images/stories/green_pattern.png") repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f0ffac), color-stop(1%, #cce752), color-stop(100%, #afda45));
+  background: url("../images/stories/green_pattern.png") repeat center center, -webkit-linear-gradient(#f0ffac, #cce752 1%, #afda45);
+  background: url("../images/stories/green_pattern.png") repeat center center, -moz-linear-gradient(#f0ffac, #cce752 1%, #afda45);
+  background: url("../images/stories/green_pattern.png") repeat center center, -o-linear-gradient(#f0ffac, #cce752 1%, #afda45);
+  background: url("../images/stories/green_pattern.png") repeat center center, -ms-linear-gradient(#f0ffac, #cce752 1%, #afda45);
+  background: url("../images/stories/green_pattern.png") repeat center center, linear-gradient(#f0ffac, #cce752 1%, #afda45);
+  border: 1px solid #739126;
+}
+
+.story.purple {
+  background: url("../images/stories/purple_pattern.png") repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eedfff), color-stop(1%, #d6b0ff), color-stop(100%, #b38ae0));
+  background: url("../images/stories/purple_pattern.png") repeat center center, -webkit-linear-gradient(#eedfff, #d6b0ff 1%, #b38ae0);
+  background: url("../images/stories/purple_pattern.png") repeat center center, -moz-linear-gradient(#eedfff, #d6b0ff 1%, #b38ae0);
+  background: url("../images/stories/purple_pattern.png") repeat center center, -o-linear-gradient(#eedfff, #d6b0ff 1%, #b38ae0);
+  background: url("../images/stories/purple_pattern.png") repeat center center, -ms-linear-gradient(#eedfff, #d6b0ff 1%, #b38ae0);
+  background: url("../images/stories/purple_pattern.png") repeat center center, linear-gradient(#eedfff, #d6b0ff 1%, #b38ae0);
+  border: 1px solid #8158af;
+}
+
+.story.flieder {
+  background: url("../images/stories/flieder_pattern.png") repeat center center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f3ff), color-stop(1%, #ebd7ff), color-stop(100%, #d6b0ff));
+  background: url("../images/stories/flieder_pattern.png") repeat center center, -webkit-linear-gradient(#f9f3ff, #ebd7ff 1%, #d6b0ff);
+  background: url("../images/stories/flieder_pattern.png") repeat center center, -moz-linear-gradient(#f9f3ff, #ebd7ff 1%, #d6b0ff);
+  background: url("../images/stories/flieder_pattern.png") repeat center center, -o-linear-gradient(#f9f3ff, #ebd7ff 1%, #d6b0ff);
+  background: url("../images/stories/flieder_pattern.png") repeat center center, -ms-linear-gradient(#f9f3ff, #ebd7ff 1%, #d6b0ff);
+  background: url("../images/stories/flieder_pattern.png") repeat center center, linear-gradient(#f9f3ff, #ebd7ff 1%, #d6b0ff);
+  border: 1px solid #9c75c6;
+}
+
+body {
+  padding: 20px;
+}
