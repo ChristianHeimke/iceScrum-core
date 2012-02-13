@@ -16,27 +16,86 @@
   - along with iceScrum.  If not, see <http://www.gnu.org/licenses/>.
   --}%
 
+<div class="${className} ${styleClass} story-container postit-${type}" id="postit-${type}-${id}" elemId="${id}">
 
-<div class="story-container">
-    <div class="story blue">
-        <div class="story-number-container button key">
-            <!-- die Klasse "button" gibt an das ein Icon oben rechts angezeigt wird -->
-            <!-- die Klasse "key" gibt an welches Icon doirt dargestellt werden soll -->
-            <h5>91</h5>
-            <p class="all-time">1269.00 h</p>
-            <!-- Hier wird zwischen den Klassen "all-time" und "my-time" unterschieden -->
+
+<div class="story ${color}">
+
+    <g:if test="${className != 'postit-rect'}">
+    %{-- tech story --}%
+        <g:if test="${typeNumber == 2}">
+            <div class="story-number-container button key" title="${typeTitle ?: ''}">
+        </g:if>
+    %{-- defect --}%
+        <g:elseif test="${typeNumber == 3}">
+            <div class="story-number-container button bug" title="${typeTitle ?: ''}">
+        </g:elseif>
+        <g:else>
+            <div class="story-number-container">
+        </g:else>
+
+
+            <h5>${miniId}</h5>
+        <g:if test="${workingTime != null}">
+            <p class="all-time">123</p>
+        </g:if>
             <div></div>
+
         </div>
-        <dl>
-            <dt>Server Einrichtung & Konfiguration</dt>
-            <dd>Installation und eine Einrichtung des neuen Servers. Dazu …</dd>
-            <dd>1 in progress</dd>
-        </dl>
-        <div class="story-footer without-paper-clip">
-            <!-- Klasse "without-paper-clip" entfernt die Büroklammer -->
-            <div class="speech-bubble"></div>
-            <div class="paper-clip"></div>
-            <div class="button-make"></div>
+    </g:if>
+
+    <dl>
+    %{-- Title --}%
+        <p class="postit-sortable break-word"><dt>${title.encodeAsHTML()}</dt></p>
+
+
+        <g:if test="${className != 'postit-rect'}">
+            <dd>${content.replace('<br>', '')}</dd>
+        </g:if>
+
+
+    </dl>
+
+    <div class="story-footer">
+
+        <g:if test="${attachment}">
+
+            <div class="paper-clip"
+                 title="${message(code: 'is.postit.attachment', args: [attachment, (attachment instanceof Integer && attachment > 1) ? 's' : ''])}"></div>
+
+        </g:if>
+
+
+        <g:if test="${comment}">
+            <div class="speech-bubble"
+                  title="${message(code: 'is.postit.comment.count', args: [comment, (comment instanceof Integer && comment > 1) ? 's' : ''])}"></div>
+        </g:if>
+    %{--Embedded menu--}%
+        <g:if test="${embeddedMenu}">
+            <div class="button-make">
+                <div class="dropmenu-action">
+                    ${embeddedMenu}
+                </div>
+            </div>
+        </g:if>
+
+    %{--Status bar of the post-it note--}%
+        <div class="state task-state">
+
+        %{--Estimation--}%
+            <g:if test="${miniValue != null}">
+                <span class=" opacity-70 mini-value ${editableEstimation ? 'editable' : ''}">${miniValue}</span>
+            </g:if>
+        %{--State label--}%
+            <span class="text-state"><is:truncated encodedHTML="true" size="16">${stateText}</is:truncated></span>
+
+
+            <g:if test="${tooltip}">
+                ${tooltip}
+            </g:if>
+
         </div>
+
     </div>
+</div>
 </div>
